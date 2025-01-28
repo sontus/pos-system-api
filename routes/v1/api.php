@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\v1\ProductController;
+use App\Http\Controllers\API\v1\SupplierController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -16,18 +17,30 @@ Route::as('auth:')->group(
 
 //Route::middleware('auth:sanctum')->group(function () {
 //
-Route::controller(ProductController::class)->group(function () {
 
-    // List Products
-    Route::get('/products', 'index');
+    // Product Routes
+    Route::controller(ProductController::class)->group(function () {
+        // List Products
+        Route::get('/products', 'index');
+        // Create Product
+        Route::post('/products', 'store');
+        // Update Product
+        Route::put('products/{id}', 'update');
+        // Soft Delete Product
+        Route::delete('products/{id}', 'destroy');
+    });
 
-    // Create Product
-    Route::post('/products', 'store');
+    // Supplier Routes
+    Route::controller(SupplierController::class)->group(function () {
+        // List Suppliers
+        Route::get('/supplier', 'index');
+        // Create Supplier
+        Route::post('/supplier', 'store');
+        // Update Supplier
+        Route::put('supplier/{id}', 'update');
+        // Soft Delete Supplier
+        Route::delete('supplier/{id}', 'destroy');
+    });
 
-    // Update Product
-    Route::put('products/{id}', 'update');
 
-    // Soft Delete Product
-    Route::delete('products/{id}', 'destroy');
-});
 //});

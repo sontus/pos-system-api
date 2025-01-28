@@ -31,6 +31,7 @@ class ProductController extends Controller
 
     public function update(ProductRequest $request, $id)
     {
+
         $product = $this->productService->updateProduct($id, $request->validated());
         return response()->json($product);
     }
