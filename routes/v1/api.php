@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\v1\ProductController;
+use App\Http\Controllers\API\v1\PurchaseController;
 use App\Http\Controllers\API\v1\SupplierController;
 use Illuminate\Support\Facades\Route;
 
@@ -41,6 +42,15 @@ Route::as('auth:')->group(
         // Soft Delete Supplier
         Route::delete('supplier/{id}', 'destroy');
     });
+
+// Purchase Routes
+Route::controller(PurchaseController::class)->group(function () {
+    // List Purchases
+    Route::get('/purchase', 'index');
+    // Create Purchase
+    Route::post('/purchase', 'store');
+
+});
 
 
 //});
