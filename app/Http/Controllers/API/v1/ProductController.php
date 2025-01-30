@@ -18,7 +18,7 @@ class ProductController extends Controller
 
     public function index(Request $request)
     {
-        $filters = $request->only(['sku', 'name', 'category']);
+        $filters = $request->only(['product_id', 'sku', 'name', 'category']);
         $products = $this->productService->getAllProducts($filters);
         return response()->json($products);
     }

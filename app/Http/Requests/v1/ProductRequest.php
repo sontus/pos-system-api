@@ -26,6 +26,7 @@ class ProductRequest extends FormRequest
             'price' => 'required|numeric|min:0',
             'sku' => 'required|string|max:100|unique:products,sku',
             'category_id' => 'required|numeric',
+            'initial_stock_quantity' => 'required|numeric|min:0',
         ];
     }
 }

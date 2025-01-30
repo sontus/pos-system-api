@@ -39,6 +39,14 @@ class ProductService
             'initial_stock_quantity' => $data['initial_stock_quantity'],
             'current_stock_quantity' => $data['initial_stock_quantity'],
         ]);
+//        $productData = array_intersect_key($data, array_flip([
+//            'category_id', 'name', 'sku', 'price', 'initial_stock_quantity'
+//        ]));
+//
+//        // Ensure the 'current_stock_quantity' is always the same as 'initial_stock_quantity'
+//        $productData['current_stock_quantity'] = $productData['initial_stock_quantity'];
+//
+//        return Product::create($productData);
     }
 
     public function updateProduct($id, array $data)

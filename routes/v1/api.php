@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\v1\CategoryController;
 use App\Http\Controllers\API\v1\ProductController;
 use App\Http\Controllers\API\v1\PurchaseController;
 use App\Http\Controllers\API\v1\SupplierController;
@@ -17,7 +18,18 @@ Route::as('auth:')->group(
 
 
 //Route::middleware('auth:sanctum')->group(function () {
-//
+
+    // Category Routes
+    Route::controller(CategoryController::class)->group(function () {
+        // List Categories
+        Route::get('/categories', 'index');
+        // Create Category
+        Route::post('/categories', 'store');
+        // Update Category
+        Route::put('categories/{id}', 'update');
+        // Soft Delete Category
+        Route::delete('categories/{id}', 'destroy');
+    });
 
     // Product Routes
     Route::controller(ProductController::class)->group(function () {
@@ -25,6 +37,9 @@ Route::as('auth:')->group(
         Route::get('/products', 'index');
         // Create Product
         Route::post('/products', 'store');
+
+
+
         // Update Product
         Route::put('products/{id}', 'update');
         // Soft Delete Product
