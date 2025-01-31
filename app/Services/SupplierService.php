@@ -13,6 +13,9 @@ class SupplierService
         $query = Supplier::query();
 
         // Apply filters
+        if(!empty($filters['supplier_id'])) {
+            $query->where('supplier_id', $filters['supplier_id']);
+        }
         if (!empty($filters['name'])) {
             $query->where('name', 'like', '%' . $filters['name'] . '%');
         }

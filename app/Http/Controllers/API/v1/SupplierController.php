@@ -19,7 +19,7 @@ class SupplierController extends Controller
     // List Suppliers
     public function index(Request $request)
     {
-        $filters = $request->only(['name']);
+        $filters = $request->only(['supplier_id','name']);
         $suppliers = $this->supplierService->getAllSuppliers($filters);
         return response()->json($suppliers, 200);
     }

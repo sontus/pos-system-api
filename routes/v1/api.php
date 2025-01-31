@@ -37,9 +37,6 @@ Route::as('auth:')->group(
         Route::get('/products', 'index');
         // Create Product
         Route::post('/products', 'store');
-
-
-
         // Update Product
         Route::put('products/{id}', 'update');
         // Soft Delete Product
