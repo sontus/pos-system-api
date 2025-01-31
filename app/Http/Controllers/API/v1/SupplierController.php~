@@ -34,6 +34,7 @@ class SupplierController extends Controller
     // Update Supplier
     public function update(SupplierRequest $request, $id)
     {
+        return $request;
         $supplier = $this->supplierService->updateSupplier($id, $request->validated());
         return response()->json($supplier);
     }
