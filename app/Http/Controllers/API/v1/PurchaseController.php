@@ -24,8 +24,11 @@ class PurchaseController extends Controller
 
     public function index(Request $request)
     {
-        $filters = $request->only(['supplier_id']);
+        $filters = $request->only(['supplier_id','purchase_id']);
         $purchases = $this->purchaseService->listPurchases($filters);
         return response()->json($purchases);
     }
+
+
+
 }

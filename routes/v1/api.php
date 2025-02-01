@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\v1\CategoryController;
+use App\Http\Controllers\API\v1\DashboardController;
 use App\Http\Controllers\API\v1\ProductController;
 use App\Http\Controllers\API\v1\PurchaseController;
 use App\Http\Controllers\API\v1\SupplierController;
@@ -19,6 +20,12 @@ Route::as('auth:')->group(
 
 //Route::middleware('auth:sanctum')->group(function () {
 
+
+    // Dashboard Routes
+    Route::controller(DashboardController::class)->group(function () {
+        // List Categories
+        Route::get('/dashboard', 'index');
+    });
     // Category Routes
     Route::controller(CategoryController::class)->group(function () {
         // List Categories

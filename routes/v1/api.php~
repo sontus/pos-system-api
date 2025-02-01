@@ -50,7 +50,7 @@ Route::as('auth:')->group(
         // Create Supplier
         Route::post('/supplier', 'store');
         // Update Supplier
-        Route::patch('supplier/{id}', 'update');
+        Route::put('supplier/{id}', 'update');
         // Soft Delete Supplier
         Route::delete('supplier/{id}', 'destroy');
     });

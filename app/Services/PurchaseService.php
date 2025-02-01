@@ -21,7 +21,7 @@ class PurchaseService
             $totalAmount = 0;
 
             foreach ($data['items'] as $item) {
-                $totalPrice = $item['quantity'] * $item['unit_price'];
+                $totalPrice = $item['quantity'] * $item['price'];
                 $totalAmount += $totalPrice;
 
                 // Add purchase item
@@ -29,7 +29,7 @@ class PurchaseService
                     'purchase_id' => $purchase->purchase_id,
                     'product_id' => $item['product_id'],
                     'quantity' => $item['quantity'],
-                    'unit_price' => $item['unit_price'],
+                    'unit_price' => $item['price'],
                     'total_price' => $totalPrice,
                 ]);
 
@@ -49,7 +49,12 @@ class PurchaseService
     // List Purchases
     public function listPurchases($filters, $pagination = 10)
     {
-        $query = Purchase::with(['items', 'supplier']);
+        $query = Purchase::with(['items', 'supplier','items.product']);
+
+        // Apply filters
+        if (!empty($filters['purchase_id'])) {
+            $query->where('purchase_id', $filters['purchase_id']);
+        }
 
         if (!empty($filters['supplier_id'])) {
             $query->where('supplier_id', $filters['supplier_id']);
@@ -57,4 +62,5 @@ class PurchaseService
 
         return $query->paginate($pagination);
     }
+
 }
