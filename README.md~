@@ -1,6 +1,6 @@
 # POS System API Setup
 
-This README provides instructions on how to set up and run the POS System API cloned from [gitlab.ussbdpos.com](https://gitlab.ussbdpos.com/poulex1/laravel-api.git).
+This README provides instructions on how to set up and run the POS System API cloned from [github](https://github.com/sontus/pos-system-api.git).
 
 ## Prerequisites
 
@@ -16,13 +16,13 @@ Before setting up the project, ensure you have the following software installed:
 First, clone the project repository to your local machine:
 
 ```bash
-git clone https://gitlab.ussbdpos.com/poulex1/laravel-api.git
+git clone https://github.com/sontus/pos-system-api.git
 ```
 
 Navigate to the project directory:
 
 ```bash
-cd laravel-api
+cd pos-system-api
 ```
 
 ### 2. Install PHP Dependencies
@@ -91,21 +91,8 @@ php artisan serve
 
 By default, the application will be accessible at `http://localhost:8000`.
 
-### 8. API Endpoints
+### 8. API Documentation Link
 
-You can now access the API endpoints as defined in the Laravel project. Make sure to authenticate any API requests if the project requires it.
+You can access the API documentation at `http://localhost:8000/api/docs` to explore the available endpoints and interact with the API.
 
-### Additional Notes
 
-- **Caching**: Clear the application's cache if needed:
-  ```bash
-  php artisan cache:clear
-  ```
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-For any further questions, feel free to reach out to the project maintainers or create an issue in the repository.

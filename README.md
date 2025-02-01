@@ -91,8 +91,8 @@ php artisan serve
 
 By default, the application will be accessible at `http://localhost:8000`.
 
-### 8. API Endpoints
+### 8. API Documentation Link
 
-You can now access the API endpoints as defined in the Laravel project. Make sure to authenticate any API requests if the project requires it.
+You can access the API documentation at `https://documenter.getpostman.com/view/6594502/2sAYX3qi94` to explore the available endpoints and interact with the API.
 
 
